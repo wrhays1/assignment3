@@ -1,0 +1,88 @@
+
+<!DOCKTYPE HTML>
+<HTML>
+	<HEAD>
+		<script id = "vertex-shader" type = "x-shader/x-vertex">
+		attribute vec4	a_Position;
+		uniform mat4 modelViewMatrix;
+		uniform mat4 projectionMatirx;
+		uniform mat4 translationMatrix;
+		uniform mat4 rotationMatrix;
+		uniform mat4 relocateToOrginMatrix;
+		void main()
+		{
+			gl_Position = translationMatrix * rotationMatrix * relocateToOrginMatrix * projectionMatirx *  modelViewMatrix * a_Position;
+			gl_PointSize = 2.0;
+		}
+		</script>
+		<script id = "fragment-shader" type ="x-shader/x-fragment">
+		precision mediump float;
+		uniform  vec4  u_Fragcolor;
+		void main()
+		{
+		   
+			 gl_FragColor = u_Fragcolor;
+			
+			
+		}
+		</script>
+		<script type = "text/javascript" src = "webgl-utils.js"> </script>
+		<script type = "text/javascript" src = "initShaders.js"> </script>
+		<script type = "text/javascript" src = "MV.js"> </script>
+		<script type = "text/javascript" src = "assignment3.js"> </script>
+	
+	</HEAD>
+	<BODY>             
+		<canvas id ="gl-canvas" width = "800" height = "800">
+		Oops ... your browser does not support html5 canvas element!
+		</canvas>
+			<br/>
+				<input type = "button" id = "clearScreen" value = "Clear Screen"/>	
+		
+			<br>
+			<br>
+			
+			<input type = "button" id = "drawSphere" value = "Draw Sphere" />
+		
+			<label for "sphere_x">Center position  </label>
+			<input id = "sphere_x" name = "x Value" placeholder = "0"> </input>
+			<input id = "sphere_y" name = "y Value" placeholder = "0"> </input>
+			<input id = "sphere_z" name = "z Value" placeholder = "0"> </input>
+			<label for "sphrtrSize">Size (Radius)  </label>
+			<input id = "sphereSize" name = "Radius" placeholder = "1"> </input>
+			
+			<br>
+			<br>
+			
+			<input type = "button" id = "drawCone" value = "Draw Cone"/>	
+			<label for "cone_x">position (Center of Base) </label>
+			<input id = "cone_x" name = "x Value" placeholder = "0"> </input>
+			<input id = "cone_y" name = "y Value" placeholder = "0"> </input>
+			<input id = "cone_z" name = "z Value" placeholder = "0"> </input>
+			<label for "coneSize">Size (Radius Bottom)  </label>
+			<input id = "coneSize" name = "Radius" placeholder = "1"> </input>
+		    <label for "coneHeight">height  </label>
+			<input id = "coneHeight" name = "height" placeholder = "1"> </input>
+			<br>
+			<br>
+			
+		 
+			<input type = "button" id = "drawCylinder" value = "Draw Cylinder"/>
+			<label for "cylinder_x">position (Center of Base) </label>
+			<input id = "cylinder_x" name = "x Value" placeholder = "0"> </input>
+			<input id = "cylinder_y" name = "y Value" placeholder = "0"> </input>
+			<input id = "cylinder_z" name = "z Value" placeholder = "0"> </input>
+			<label for "size">Size (Radius Bottom)  </label>
+			<input id = "cylinderSize" name = "Radius" placeholder = "1"> </input>
+		    <label for "cylinderSize">height  </label>
+			<input id = "cylinderHeight" name = "height" placeholder = "1"> </input>			
+			<br> 
+			<br>
+	
+		
+		
+		
+			
+		
+	</BODY>
+</HTML>
