@@ -1,3 +1,7 @@
+
+Please download the zip file, unzip and load the assignemt3.html into your browser 
+
+
 Common files:
 
 webgl-utils.js: standard utilities from google to set up a webgl context
